@@ -7,7 +7,7 @@ namespace App\Serializer\Denormalizer;
 use App\Entity\Choice;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
-class ChoiceDenormalizer implements DenormalizerInterface
+class ChoiceDenormalizer implements DenormalizerInterface, NestedFormatDenormalizerInterface
 {
     /**
      * @param array $data
@@ -31,6 +31,6 @@ class ChoiceDenormalizer implements DenormalizerInterface
      */
     public function supportsDenormalization($data, $type, $format = null): bool
     {
-        return $format !== 'csv' && $type === Choice::class;
+        return in_array($format,self::NESTED_FORMATS, true) && $type === Choice::class;
     }
 }

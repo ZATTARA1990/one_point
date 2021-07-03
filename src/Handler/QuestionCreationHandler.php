@@ -6,9 +6,9 @@ namespace App\Handler;
 
 use App\DTO\QuestionRequestDTO;
 use App\Entity\Question;
-use App\Service\DatabaseManagerInterface;
-use App\Service\DatabaseManagerLocator;
-use App\Service\QuestionCreator;
+use App\Service\DatabaseManager\DatabaseManagerInterface;
+use App\Service\DatabaseManager\DatabaseManagerLocator;
+use App\Service\Creator\QuestionCreator;
 
 class QuestionCreationHandler
 {

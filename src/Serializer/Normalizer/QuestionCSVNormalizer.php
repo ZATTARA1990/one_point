@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Serializer\Normalizer;
 
 use App\Entity\Question;
-use App\Service\DatabaseManagerInterface;
+use App\Service\DatabaseManager\DatabaseManagerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class QuestionCSVNormalizer implements NormalizerInterface

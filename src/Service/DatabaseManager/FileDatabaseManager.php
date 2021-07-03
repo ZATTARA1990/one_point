@@ -2,19 +2,32 @@
 
 declare(strict_types=1);
 
-namespace App\Service;
+namespace App\Service\DatabaseManager;
 
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\SerializerInterface;
 
 abstract class FileDatabaseManager implements DatabaseManagerInterface
 {
+    /**
+     * @var string|mixed
+     */
     private string $filePath;
 
+    /**
+     * @var SerializerInterface
+     */
     private SerializerInterface $serializer;
 
+    /**
+     * @return string
+     */
     abstract public static function getType(): string;
 
+    /**
+     * @param string $databaseDSN
+     * @param SerializerInterface $serializer
+     */
     public function __construct(string $databaseDSN, SerializerInterface $serializer)
     {
         $this->filePath = parse_url($databaseDSN)['path'];

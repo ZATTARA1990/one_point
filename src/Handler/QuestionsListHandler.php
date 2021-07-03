@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Handler;
 
 use App\Entity\Question;
-use App\Service\DatabaseManagerInterface;
-use App\Service\DatabaseManagerLocator;
+use App\Service\DatabaseManager\DatabaseManagerInterface;
+use App\Service\DatabaseManager\DatabaseManagerLocator;
 
 class QuestionsListHandler
 {

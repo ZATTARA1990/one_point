@@ -9,7 +9,7 @@ use App\Entity\Question;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
-class QuestionDenormalizer implements DenormalizerInterface
+class QuestionDenormalizer implements DenormalizerInterface, NestedFormatDenormalizerInterface
 {
     private SerializerInterface $serializer;
 
@@ -47,6 +47,6 @@ class QuestionDenormalizer implements DenormalizerInterface
      */
     public function supportsDenormalization($data, $type, $format = null): bool
     {
-        return $format !== 'csv' && $type === Question::class;
+        return in_array($format,self::NESTED_FORMATS, true) && $type === Question::class;
     }
 }

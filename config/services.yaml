@@ -30,21 +30,16 @@ services:
 
     # Tags
     _instanceof:
-        App\Service\DatabaseManagerInterface:
+        App\Service\DatabaseManager\DatabaseManagerInterface:
             tags: [ 'app.database_manager' ]
 
         Symfony\Component\Serializer\Normalizer\DenormalizerInterface:
             tags: [ 'app.denormalizer' ]
 
-    App\Service\DatabaseManagerLocator:
+    App\Service\DatabaseManager\DatabaseManagerLocator:
         arguments:
             - !tagged { tag: 'app.database_manager', index_by: 'key', default_index_method: 'getType' }
             - '%app.database_type%'
-
-    # Serialization
-    App\Serializer\CustomDenormalizerLocator:
-        arguments:
-            - !tagged_iterator app.denormalizer
 
     # API
     App\EventListener\JsonRequestTransformerListener:

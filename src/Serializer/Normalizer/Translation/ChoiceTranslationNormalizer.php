@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Serializer\Normalizer;
+namespace App\Serializer\Normalizer\Translation;
 
 use App\Entity\Choice;
 use Stichoza\GoogleTranslate\GoogleTranslate;
